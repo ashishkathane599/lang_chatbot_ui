@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 
 load_dotenv( )
 
-
 class ChatState(TypedDict):
 
     messages: Annotated[list[BaseMessage], add_messages]
@@ -21,14 +20,14 @@ llm = ChatGroq(model= "openai/gpt-oss-120b",temperature=0.7)
 
 def chat_node(state: ChatState):
 
-    # take user query from state
-    messages = state['messages']
+        # take user query from state
+        messages = state['messages']
 
-    # send to llm
-    response = llm.invoke(messages)
+        # send to llm
+        response = llm.invoke(messages)
 
-    # response store state
-    return {'messages': [response]}
+        # response store state
+        return {'messages': [response]}
 
 
 
